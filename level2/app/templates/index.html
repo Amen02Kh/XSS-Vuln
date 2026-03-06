@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>SafeSearch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="/"><span class="nav-brand-icon">⛨</span> SAFESEARCH</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-logo">⛨ SAFESEARCH</div>
+    <div class="hero-sub">XSS-PROTECTED SEARCH ENGINE // v3.1</div>
+    <div class="hero-desc">Our search is protected by an advanced sanitization filter. All known XSS vectors are blocked.</div>
+    <form class="search-form" action="/search" method="GET">
+      <input class="search-input" type="text" name="q" placeholder="Search anything..." autocomplete="off"/>
+      <button class="btn btn-primary" type="submit">SEARCH</button>
+    </form>
+  </div>
+</div>
+<div class="scan-line"></div>
+</body>
+</html>

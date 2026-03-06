@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Register — NoteBoard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="auth-wrapper">
+  <div class="auth-box">
+    <div class="auth-logo">◎ NOTEBOARD</div>
+    <div class="auth-sub">CREATE AN ACCOUNT</div>
+    {% if error %}<div class="alert alert-error">{{ error }}</div>{% endif %}
+    <form method="POST">
+      <div class="field"><label>USERNAME</label><input type="text" name="username" required/></div>
+      <div class="field"><label>PASSWORD</label><input type="password" name="password" required/></div>
+      <button class="btn btn-primary" type="submit">REGISTER</button>
+    </form>
+    <div class="auth-alt">Already registered? <a href="/login">LOGIN</a></div>
+  </div>
+</div>
+<div class="scan-line"></div>
+</body>
+</html>

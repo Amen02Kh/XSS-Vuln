@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Search — SafeSearch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="/"><span class="nav-brand-icon">⛨</span> SAFESEARCH</a>
+</nav>
+
+<main>
+  <div class="page-header">
+    <div class="page-title">⛨ SEARCH RESULTS</div>
+    <!-- 🔴 sanitized query reflected raw — filter is incomplete -->
+    <div class="page-subtitle">Showing results for: {{ query | safe }}</div>
+    <div class="filter-badge">✓ INPUT SANITIZED</div>
+  </div>
+
+  <div class="results">
+    <div class="result-item">
+      <div class="result-title">Security Report Q4 2025</div>
+      <div class="result-meta">Classified // Owner: admin</div>
+      <div class="result-snippet">Vulnerability assessment and penetration testing results...</div>
+    </div>
+    <div class="result-item">
+      <div class="result-title">Network Architecture Overview</div>
+      <div class="result-meta">Internal // Owner: ops</div>
+      <div class="result-snippet">Infrastructure topology and access control documentation...</div>
+    </div>
+    <div class="result-item">
+      <div class="result-title">Incident Response Playbook</div>
+      <div class="result-meta">Restricted // Owner: security</div>
+      <div class="result-snippet">Procedures for handling security incidents and breaches...</div>
+    </div>
+  </div>
+
+  <form class="search-form mt3" action="/search" method="GET">
+    <input class="search-input" type="text" name="q" autocomplete="off" placeholder="Search again..."/>
+    <button class="btn btn-primary" type="submit">SEARCH</button>
+  </form>
+</main>
+
+<script>
+  // Fetch flag and display it — only useful once XSS fires
+  function showFlag() {
+    fetch('/flag')
+      .then(r => r.json())
+      .then(d => alert(d.flag));
+  }
+</script>
+
+<div class="scan-line"></div>
+</body>
+</html>

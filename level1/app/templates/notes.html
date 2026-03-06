@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>NoteBoard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="/notes"><span class="nav-brand-icon">◎</span> NOTEBOARD</a>
+  <ul class="nav-links">
+    <li><a href="/notes">NOTES</a></li>
+    {% if logged_in %}
+    <li><a href="/notes/new">NEW NOTE</a></li>
+    <li><a href="/logout">LOGOUT</a></li>
+    {% else %}
+    <li><a href="/login">LOGIN</a></li>
+    {% endif %}
+  </ul>
+</nav>
+
+<main>
+  <div class="page-header flex justify-between align-center">
+    <div>
+      <div class="page-title">◎ PUBLIC NOTES</div>
+      <div class="page-subtitle">COMMUNITY BOARD // VISIBLE TO ALL USERS INCLUDING ADMIN</div>
+    </div>
+    {% if logged_in %}
+    <a href="/notes/new" class="btn btn-secondary btn-sm">+ NEW NOTE</a>
+    {% endif %}
+  </div>
+
+  {% if flag %}
+  <div class="flag-box">
+    <div class="flag-label">◈ ADMIN SESSION ACTIVE — FLAG UNLOCKED</div>
+    <div class="flag-value">{{ flag }}</div>
+  </div>
+  {% endif %}
+
+  <div class="note-list">
+    {% for note in notes %}
+    <div class="note-card">
+      <div class="note-header">
+        <span class="note-author">{{ note.author }}</span>
+        <span class="note-date">{{ note.created_at }}</span>
+      </div>
+      <div class="note-title">{{ note.title }}</div>
+      <!-- 🔴 VULNERABLE: content rendered raw with |safe -->
+      <div class="note-content">{{ note.content | safe }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</main>
+<div class="scan-line"></div>
+</body>
+</html>

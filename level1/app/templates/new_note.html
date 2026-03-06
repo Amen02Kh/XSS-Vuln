@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>New Note — NoteBoard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="/notes"><span class="nav-brand-icon">◎</span> NOTEBOARD</a>
+  <ul class="nav-links">
+    <li><a href="/notes">NOTES</a></li>
+    <li><a href="/notes/new">NEW NOTE</a></li>
+    <li><a href="/logout">LOGOUT</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="page-header">
+    <div class="page-title">◎ NEW NOTE</div>
+    <div class="page-subtitle">POSTS ARE PUBLIC AND VISIBLE TO ALL USERS</div>
+  </div>
+
+  {% if error %}
+  <div class="alert alert-error">{{ error }}</div>
+  {% endif %}
+
+  <div class="form-block">
+    <form method="POST">
+      <div class="field">
+        <label>TITLE</label>
+        <input type="text" name="title" required maxlength="100"/>
+      </div>
+      <div class="field mt2">
+        <label>CONTENT</label>
+        <textarea name="content" required></textarea>
+      </div>
+      <div class="flex gap1 mt2">
+        <button class="btn btn-primary" type="submit" style="width:auto;padding:.7rem 2rem;">POST NOTE</button>
+        <a href="/notes" class="btn btn-secondary">CANCEL</a>
+      </div>
+    </form>
+  </div>
+</main>
+<div class="scan-line"></div>
+</body>
+</html>

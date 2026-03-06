@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  
+  xss-level1:
+    build: ./level1
+    ports:
+      - "5010:5000"
+    environment:
+      FLAG: "FLAG{5t0r3d_xss_c00k13_th3ft_4dm1n_b0t}"
+    restart: unless-stopped
+    tmpfs:
+      - /tmp
+
+  xss-level2:
+    build: ./level2
+    ports:
+      - "5011:5000"
+    environment:
+      FLAG: "FLAG{f1lt3r_byp4ss_xss_c0nf1rm3d}"
+    restart: unless-stopped
